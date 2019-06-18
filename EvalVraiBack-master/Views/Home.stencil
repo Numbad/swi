@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <form method="post" action="/modify_commande_status">
+            <table>
+                <thead>
+                    <tr>
+                    <th colspan="2">Liste des commandes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in commandes %}
+                    <tr>
+                        <td>{{i.number}}</td>
+                        <td>{{i.pizza}}</td>
+                        {% if i.delivred %}
+                            <td>
+                                <input type="checkbox" name="{{i.number}}" checked>
+                                <label for="{{i.number}}">délivré</label>
+                            </td>
+                        {% else %}
+                            <td>
+                                <input type="checkbox" name="{{i.number}}" id="{i.number}}">
+                                <label for="{{i.number}}">pas délivré</label>
+                            </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input type="submit" style="margin:30px"/>
+        </form>
+    </body>
+</html>

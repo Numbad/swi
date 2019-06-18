@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Home</title>
+    </head>
+    <body>
+        <form method="post" action="/add_recette">
+            <input name="pizzaName" type="text" placeholder="Entrez le nom de la pizza"
+                style= "display:block"/>
+                <label style= "display:block; margin: 10px">Liste des ingredients</label>
+                {% for i in ingredients %}
+                    <div style= "display:inline-block; widht: 30%">
+                        <input type="checkbox" id="{{i.id}}" name="{{i.id}}">
+                        <label for="{{i.id}}">{{i.nom}}</label>
+                    </div>
+                {% endfor %}
+                <input type="submit" style="margin:30px"/>
+        </form>
+    </body>
+</html>
